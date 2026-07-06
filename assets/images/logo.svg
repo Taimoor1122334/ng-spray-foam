@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200" width="100%" height="100%">
+  <!-- Definitions for clean styles matching brand color palette -->
+  <defs>
+    <style>
+      .brand-green { fill: #0F4738; }
+      .brand-charcoal { fill: #2E2E2E; }
+      .brand-sand { fill: #C8AF8B; }
+      .brand-light-sand { fill: #E6DFD5; }
+      .brand-text-green { font-family: 'Manrope', 'Inter', 'Helvetica Neue', sans-serif; font-weight: 800; font-size: 155px; fill: #0F4738; }
+      .brand-subtext { font-family: 'Manrope', 'Inter', 'Helvetica Neue', sans-serif; font-weight: 700; font-size: 25px; fill: #C8AF8B; letter-spacing: 12px; }
+    </style>
+  </defs>
+
+  <!-- Left: Stacked Roof Icon -->
+  <g>
+    <!-- Layer 1: Dark Green Roof with Chimney -->
+    <rect x="174" y="53" width="24" height="35" class="brand-green" />
+    <path d="M 30 95 L 120 45 L 210 95 L 210 113 L 120 63 L 30 113 Z" class="brand-green" />
+
+    <!-- Layer 2: Charcoal Roof -->
+    <path d="M 30 118 L 120 68 L 210 118 L 210 136 L 120 86 L 30 136 Z" class="brand-charcoal" />
+
+    <!-- Layer 3: Sand/Beige Roof -->
+    <path d="M 30 141 L 120 91 L 210 141 L 210 159 L 120 109 L 30 159 Z" class="brand-sand" />
+
+    <!-- Layer 4: Light Sand Solid Base Triangle -->
+    <path d="M 30 164 L 120 114 L 210 164 Z" class="brand-light-sand" />
+  </g>
+
+  <!-- Right: NG SPRAY FOAM Text -->
+  <g>
+    <text x="260" y="142" class="brand-text-green">NG</text>
+    <text x="264" y="175" class="brand-subtext">SPRAY FOAM</text>
+  </g>
+</svg>

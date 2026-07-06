@@ -1,0 +1,8 @@
+{
+  "name": "NG Spray Foam",
+  "description": "A handcrafted, premium website for NG Spray Foam, showcasing residential and commercial insulation services with elite visual design, transparent navigation, and conversion-focused structures.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

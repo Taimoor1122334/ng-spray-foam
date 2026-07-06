@@ -1,0 +1,159 @@
+/* ==========================================================================
+   RESPONSIVE LAYOUT ADJUSTMENTS - NG SPRAY FOAM
+   ========================================================================== */
+
+/* Large Screens & Desktops (1440px and up) */
+@media (min-width: 1440px) {
+  .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    max-width: 1320px;
+  }
+}
+
+/* Medium Desktops (1200px to 1399px) */
+@media (max-width: 1199.98px) {
+  .display-heading {
+    font-size: 60px;
+  }
+  .section-heading {
+    font-size: 44px;
+  }
+  .section-padding {
+    padding: 100px 0;
+  }
+  .hero-section {
+    padding: 150px 0 100px;
+  }
+}
+
+/* Tablets & Small Desktops (992px to 1199px) */
+@media (max-width: 991.98px) {
+  .display-heading {
+    font-size: 52px;
+  }
+  .section-heading {
+    font-size: 38px;
+  }
+  .section-padding {
+    padding: 80px 0;
+  }
+  .hero-section {
+    padding: 130px 0 80px;
+  }
+  
+  /* Navigation mobile behavior */
+  .navbar-collapse {
+    background: var(--color-bg);
+    border-radius: var(--radius-md);
+    padding: 24px;
+    margin-top: 15px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--color-border);
+  }
+  
+  .nav-link-premium {
+    margin: 10px 0;
+    padding: 8px 0;
+    display: inline-block;
+  }
+  
+  .nav-link-premium::after {
+    bottom: 4px;
+  }
+
+  .hero-image-composite {
+    margin-top: 40px;
+    padding: 10px;
+  }
+  
+  .hero-accent-card {
+    left: 10px;
+    bottom: -10px;
+  }
+  
+  .ba-slider-container {
+    height: 380px;
+  }
+}
+
+/* Landscape Phones & Small Tablets (768px to 991px) */
+@media (max-width: 767.98px) {
+  .display-heading {
+    font-size: 42px;
+  }
+  .section-heading {
+    font-size: 32px;
+  }
+  .section-padding {
+    padding: 60px 0;
+  }
+  .hero-section {
+    padding: 110px 0 60px;
+  }
+  
+  .premium-card {
+    padding: 30px;
+  }
+  
+  .contact-form-card, .contact-info-card {
+    padding: 30px;
+  }
+  
+  .testimonial-container {
+    padding: 40px 30px;
+  }
+  
+  .ba-slider-container {
+    height: 320px;
+  }
+}
+
+/* Portrait Phones (425px and below) */
+@media (max-width: 425px) {
+  body {
+    font-size: 16px;
+  }
+  .display-heading {
+    font-size: 34px;
+    line-height: 1.2;
+  }
+  .section-heading {
+    font-size: 26px;
+  }
+  .btn-premium {
+    padding: 12px 24px;
+    font-size: 15px;
+    width: 100%;
+    justify-content: center;
+  }
+  .ba-slider-container {
+    height: 260px;
+  }
+  .hero-accent-card {
+    padding: 14px;
+    max-width: 220px;
+    gap: 10px;
+  }
+  .hero-accent-icon {
+    width: 40px;
+    height: 40px;
+  }
+  .stat-box {
+    padding: 20px 10px;
+  }
+}
+
+/* Tiny Mobile Screens (320px to 374px) */
+@media (max-width: 374.98px) {
+  .display-heading {
+    font-size: 30px;
+  }
+  .section-heading {
+    font-size: 24px;
+  }
+  .hero-accent-card {
+    display: none; /* Hide on extremely small screens to prevent overlap */
+  }
+  .ba-slider-container {
+    height: 220px;
+  }
+}
