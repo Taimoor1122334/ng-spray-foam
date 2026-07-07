@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us | Little Rock Insulation Company | NG Spray Foam</title>
-  <meta name="description" content="NG Spray Foam is a family-run insulation company in Little Rock, AR. Learn who we are, how we work, and why homeowners and builders across central Arkansas trust our crew.">
+  <title>Elite Project Gallery | Real Completed Projects | NG Spray Foam</title>
+  <meta name="description" content="View our portfolio of residential and commercial insulation projects. Explore attic retrofits, crawl space encapsulation, and spray foam insulation in Little Rock.">
   <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
@@ -28,13 +28,13 @@
             <a class="nav-link nav-link-premium" href="index.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link nav-link-premium active" href="about.html">About</a>
+            <a class="nav-link nav-link-premium" href="about.html">About</a>
           </li>
           <li class="nav-item">
             <a class="nav-link nav-link-premium" href="services.html">Services</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link nav-link-premium" href="gallery.html">Gallery</a>
+            <a class="nav-link nav-link-premium active" href="gallery.html">Gallery</a>
           </li>
           <li class="nav-item">
             <a class="nav-link nav-link-premium" href="testimonials.html">Testimonials</a>
@@ -56,127 +56,115 @@
     </div>
   </nav>
 
-  <!-- About Header — editorial origin story -->
-  <section class="section-padding bg-soft-sand" style="padding-top: 170px; padding-bottom: 90px;">
-    <div class="container">
-      <div class="row align-items-center g-5">
-        <div class="col-lg-6 col-12 reveal">
-          <span class="sub-heading">Who we are</span>
-          <h1 class="display-heading mb-4" style="font-size: clamp(38px, 5vw, 56px);">A family insulation crew, born and raised in Little Rock</h1>
-          <p class="text-muted mb-4" style="font-size: 19px;">We started NG Spray Foam because we were tired of watching neighbors overpay to heat and cool drafty houses. Fifteen years later, we're still the ones on the ladder &mdash; sealing attics, walls, and crawl spaces across central Arkansas.</p>
-          <div class="signature" style="color: var(--color-accent-text);">Nate G.</div>
-          <div class="text-muted" style="font-size: 14px;">Owner &amp; lead installer</div>
-        </div>
-        <div class="col-lg-6 col-12 reveal delay-200">
-          <div class="position-relative">
-            <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=700&q=80" alt="The NG Spray Foam crew on a job in central Arkansas" class="img-fluid rounded-lg-20 shadow-lg">
-            <div class="est-badge">
-              <span class="est-num">Est. 2009</span>
-              <span class="est-lbl">Little Rock, AR</span>
-            </div>
-          </div>
-        </div>
-      </div>
+  <!-- Gallery Header -->
+  <section class="section-padding bg-soft-sand" style="padding-top: 160px; padding-bottom: 80px;">
+    <div class="container text-center reveal">
+      <span class="sub-heading">Completed Works</span>
+      <h1 class="display-heading text-green mb-3" style="font-size: 56px;">NG Spray Foam Case Files</h1>
+      <p class="text-muted mx-auto" style="max-width: 800px; font-size: 19px;">Browse real-life photography of our certified insulation applications in luxury custom homes and high-performance commercial facilities.</p>
     </div>
   </section>
 
-  <!-- Our Story -->
+  <!-- Logo Roof Separator -->
+  <div class="roof-separator">
+    <div class="roof-badge">
+      <div class="roof-chevron">
+        <div class="roof-chevron-top"></div>
+        <div class="roof-chevron-bottom"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gallery Grid and Filtering -->
   <section class="section-padding bg-white">
     <div class="container">
-      <div class="row align-items-center g-5">
-        <div class="col-lg-6 col-12 reveal">
-          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=700&q=80" alt="Spray foam being applied in an attic" class="img-fluid rounded-lg-20 shadow-lg">
+      
+      <!-- Filter Button row -->
+      <div class="d-flex justify-content-center flex-wrap mb-5 reveal">
+        <button class="gallery-filter-btn active" data-filter="all">All Projects</button>
+        <button class="gallery-filter-btn" data-filter="attic">Attic Retrofits</button>
+        <button class="gallery-filter-btn" data-filter="residential">Residential Homes</button>
+        <button class="gallery-filter-btn" data-filter="commercial">Commercial Buildings</button>
+        <button class="gallery-filter-btn" data-filter="crawlspace">Crawl Space Sealing</button>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="row g-4 reveal delay-100" id="galleryGrid">
+        <!-- Gallery Item 1 -->
+        <div class="col-lg-4 col-md-6 col-12 gallery-grid-item" data-category="attic">
+          <a href="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80" class="gallery-item lightbox-trigger d-block" data-title="Attic Insulation Seal">
+            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80" alt="Vaulted Attic Spray Foam Seal">
+            <div class="gallery-hover-overlay">
+              <h4 class="gallery-title">Attic Thermal Rafter Seal</h4>
+              <span class="gallery-category">Attic Retrofits</span>
+            </div>
+          </a>
         </div>
-        <div class="col-lg-6 col-12 ps-lg-4 mt-lg-0 mt-5 reveal delay-200">
-          <span class="sub-heading">How we work</span>
-          <h2 class="section-heading mb-4">We look at the whole house, not just one room</h2>
-          <p class="text-muted mb-4">Most calls start the same way: a room that's freezing in January, or an upstairs nobody can stand to be in come July. Nine times out of ten, the real problem is somewhere the homeowner never thinks to look.</p>
-          <p class="text-muted mb-4">So before we quote a single dollar, we get up in the attic and down in the crawl space and find where your air is actually going. Then we fix <em>that</em> &mdash; not whatever happens to be easiest to sell.</p>
-          <div class="pull-quote">"If it's not something we'd do on our own house, we won't do it on yours."</div>
+
+        <!-- Gallery Item 2 -->
+        <div class="col-lg-4 col-md-6 col-12 gallery-grid-item" data-category="residential">
+          <a href="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80" class="gallery-item lightbox-trigger d-block" data-title="Custom Residential Insulation">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80" alt="Luxury Residential Custom Home Framing">
+            <div class="gallery-hover-overlay">
+              <h4 class="gallery-title">Luxury Residential Framing</h4>
+              <span class="gallery-category">Residential Homes</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Gallery Item 3 -->
+        <div class="col-lg-4 col-md-6 col-12 gallery-grid-item" data-category="commercial">
+          <a href="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80" class="gallery-item lightbox-trigger d-block" data-title="Commercial Multi-Family Insulation">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80" alt="Commercial Office Building Wall Cavity Insulation">
+            <div class="gallery-hover-overlay">
+              <h4 class="gallery-title">Commercial Thermal System</h4>
+              <span class="gallery-category">Commercial Buildings</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Gallery Item 4 -->
+        <div class="col-lg-4 col-md-6 col-12 gallery-grid-item" data-category="crawlspace">
+          <a href="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80" class="gallery-item lightbox-trigger d-block" data-title="Crawlspace Encapsulation membrane">
+            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Crawl Space Moisture Seal Encapsulation">
+            <div class="gallery-hover-overlay">
+              <h4 class="gallery-title">Full Crawlspace Encapsulation</h4>
+              <span class="gallery-category">Crawl Space Sealing</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Gallery Item 5 -->
+        <div class="col-lg-4 col-md-6 col-12 gallery-grid-item" data-category="attic">
+          <a href="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80" class="gallery-item lightbox-trigger d-block" data-title="Blown-in Loose Fill Attic">
+            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80" alt="Loose Fill Cellulose Attic Blow In">
+            <div class="gallery-hover-overlay">
+              <h4 class="gallery-title">Pneumatic Attic Cellulose</h4>
+              <span class="gallery-category">Attic Retrofits</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Gallery Item 6 -->
+        <div class="col-lg-4 col-md-6 col-12 gallery-grid-item" data-category="residential">
+          <a href="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80" class="gallery-item lightbox-trigger d-block" data-title="Custom Home Wall Cavity">
+            <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=600&q=80" alt="Stud Wall closed cell foam cavity spray">
+            <div class="gallery-hover-overlay">
+              <h4 class="gallery-title">Residential Wall Cavity</h4>
+              <span class="gallery-category">Residential Homes</span>
+            </div>
+          </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- What We Care About — numbered principles -->
-  <section class="section-padding bg-soft-sand">
-    <div class="container">
-      <div class="row g-5">
-        <div class="col-lg-4 col-12">
-          <div class="about-intro-sticky reveal" style="position: sticky; top: 120px;">
-            <span class="sub-heading">What we care about</span>
-            <h2 class="section-heading mb-4">The way we like to do business</h2>
-            <p class="text-muted">No corporate playbook here &mdash; just the handful of rules we've stuck to since day one.</p>
-          </div>
-        </div>
-        <div class="col-lg-8 col-12 reveal delay-100">
-          <div class="principle">
-            <span class="principle-num">01</span>
-            <div class="principle-body">
-              <h4 class="font-heading">Honest pricing</h4>
-              <p>No surprise fees or hidden labor charges. You get a clear, itemized quote up front, and the price we shake on is the price you pay.</p>
-            </div>
-          </div>
-          <div class="principle">
-            <span class="principle-num">02</span>
-            <div class="principle-body">
-              <h4 class="font-heading">Clean, careful work</h4>
-              <p>We cover your floors, trim the foam flush, and sweep up before we leave. When we're done, the only thing you'll notice is how much better the house feels.</p>
-            </div>
-          </div>
-          <div class="principle">
-            <span class="principle-num">03</span>
-            <div class="principle-body">
-              <h4 class="font-heading">Trained, insured, and safe</h4>
-              <p>Our installers know Arkansas building codes and proper application inside out. We're fully insured, and our cured foam is inert, odorless, and low-VOC &mdash; safe for family and pets.</p>
-            </div>
-          </div>
-          <div class="principle">
-            <span class="principle-num">04</span>
-            <div class="principle-body">
-              <h4 class="font-heading">Built to last</h4>
-              <p>Unlike old batts that sag and settle over the years, spray foam stays put. Once it's in, it keeps sealing your home for the long haul.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Quality Checklist CTA Section -->
-  <section class="section-padding bg-white">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-6 col-12 reveal">
-          <span class="sub-heading">Our promise</span>
-          <h2 class="section-heading mb-4">What you can count on from us</h2>
-          <p class="text-muted mb-5">Every job, big or small, gets the same attention. Here's what that looks like on site:</p>
-          
-          <ul class="list-unstyled text-muted mb-5" style="font-size: 17px;">
-            <li class="mb-3 d-flex align-items-center gap-3">
-              <span class="bg-sand rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 28px; height: 28px;"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-              <span>We cover and protect your floors, windows, and belongings before we start.</span>
-            </li>
-            <li class="mb-3 d-flex align-items-center gap-3">
-              <span class="bg-sand rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 28px; height: 28px;"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-              <span>We check for moisture and prep the area so the foam bonds the way it should.</span>
-            </li>
-            <li class="mb-3 d-flex align-items-center gap-3">
-              <span class="bg-sand rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 28px; height: 28px;"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-              <span>We apply an even coat and double-check the coverage before moving on.</span>
-            </li>
-            <li class="mb-3 d-flex align-items-center gap-3">
-              <span class="bg-sand rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 28px; height: 28px;"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-              <span>We clean up completely and walk you through the finished work.</span>
-            </li>
-          </ul>
-
-          <a href="contact.html" class="btn-premium btn-primary-green hover-lift">Get a Free Estimate</a>
-        </div>
-        <div class="col-lg-5 col-12 offset-lg-1 mt-lg-0 mt-5 reveal delay-200">
-          <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=600&q=80" alt="Insulation Inspector with Safety Equipment" class="img-fluid rounded-lg-20 shadow-lg">
-        </div>
-      </div>
+  <!-- Call to action block -->
+  <section class="section-padding bg-dark-green text-white text-center">
+    <div class="container reveal">
+      <h2 class="section-heading text-white mb-4">Ready to See Real Results on Your Build?</h2>
+      <p class="text-white-50 mx-auto mb-5" style="max-width:700px; font-size:18px;">Contact us to arrange an on-site consultation. Our team will review blueprints or inspect existing cavities and deliver a comprehensive board-foot estimate.</p>
+      <a href="contact.html" class="btn-premium btn-secondary-sand hover-lift">Get Free Project Appraisal</a>
     </div>
   </section>
 
@@ -206,7 +194,7 @@
             <li><a href="services.html">Insulation Services</a></li>
             <li><a href="gallery.html">Project Gallery</a></li>
             <li><a href="testimonials.html">Testimonials</a></li>
-            <li><a href="contact.html">Contact HQ</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
 
@@ -257,5 +245,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/gallery.js"></script>
 </body>
 </html>
