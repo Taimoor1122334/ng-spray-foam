@@ -12,137 +12,441 @@
 /* Medium Desktops (1200px to 1399px) */
 @media (max-width: 1199.98px) {
   .display-heading {
-    font-size: 60px;
+    font-size: 56px;
   }
   .section-heading {
-    font-size: 44px;
+    font-size: 42px;
   }
   .section-padding {
     padding: 100px 0;
   }
   .hero-section {
-    padding: 150px 0 100px;
+    padding: 170px 0 110px;
+    min-height: 88vh;
   }
 }
 
-/* Tablets & Small Desktops (992px to 1199px) */
+/* Tablets & Small Desktops (≤991px) */
 @media (max-width: 991.98px) {
   .display-heading {
-    font-size: 52px;
+    font-size: 46px;
   }
   .section-heading {
-    font-size: 38px;
+    font-size: 36px;
   }
   .section-padding {
     padding: 80px 0;
   }
   .hero-section {
-    padding: 130px 0 80px;
+    padding: 150px 0 90px;
+    min-height: 0;
+    background-image:
+      linear-gradient(180deg, rgba(20, 32, 25, 0.92) 0%, rgba(20, 32, 25, 0.78) 55%, rgba(20, 32, 25, 0.88) 100%),
+      url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=80');
   }
-  
-  /* Navigation mobile behavior */
+  .hero-section .paragraph {
+    font-size: 18px !important;
+  }
+  .hero-trust {
+    gap: 18px 28px;
+    margin-top: 32px;
+    padding-top: 24px;
+  }
+
+  /* Navigation mobile panel */
+  .navbar-premium .navbar-brand {
+    width: 150px !important;
+  }
   .navbar-collapse {
-    background: var(--color-bg);
-    border-radius: var(--radius-md);
-    padding: 24px;
-    margin-top: 15px;
+    background: rgba(247, 242, 234, 0.97);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 18px;
+    padding: 16px !important;
+    margin-top: 12px !important;
     box-shadow: var(--shadow-md);
-    border: 1px solid var(--color-border);
+    border: 1px solid rgba(199, 185, 164, 0.55);
   }
-  
   .nav-link-premium {
-    margin: 10px 0;
-    padding: 8px 0;
-    display: inline-block;
+    margin: 2px 0;
+    padding: 10px 14px;
+    display: block;
   }
-  
   .nav-link-premium::after {
-    bottom: 4px;
+    display: none;
   }
 
   .hero-image-composite {
     margin-top: 40px;
     padding: 10px;
   }
-  
   .hero-accent-card {
     left: 10px;
     bottom: -10px;
   }
-  
   .ba-slider-container {
     height: 380px;
   }
+
+  /* Areas strip */
+  .areas-strip {
+    padding: 20px 0;
+  }
+  .areas-strip .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .areas-strip-list li {
+    font-size: 15px;
+  }
+  .areas-strip-list li:not(:last-child)::after {
+    margin: 0 12px;
+  }
+
+  /* About floating badge — keep on screen */
+  #about .position-absolute.translate-middle-y {
+    right: 12px !important;
+    left: auto;
+    bottom: 16px !important;
+    max-width: 200px !important;
+    padding: 16px !important;
+  }
+
+  /* Founder */
+  .founder-quote {
+    font-size: 22px;
+  }
+  .founder-stats {
+    gap: 28px;
+  }
+
+  /* Service detail rows */
+  .svc-row {
+    padding-bottom: 48px;
+    margin-bottom: 48px;
+  }
+
+  /* Sticky sidebars become static */
+  .services-intro,
+  .about-intro-sticky {
+    position: static !important;
+    margin-bottom: 12px;
+  }
+
+  /* Contact / FAQ helpers */
+  .contact-assurances {
+    margin-top: 8px;
+  }
 }
 
-/* Landscape Phones & Small Tablets (768px to 991px) */
+/* Landscape Phones & Small Tablets (≤767px) */
 @media (max-width: 767.98px) {
   .display-heading {
-    font-size: 42px;
+    font-size: 38px;
+    line-height: 1.15;
   }
   .section-heading {
-    font-size: 32px;
+    font-size: 30px;
   }
   .section-padding {
-    padding: 60px 0;
+    padding: 64px 0;
   }
   .hero-section {
-    padding: 110px 0 60px;
+    padding: 130px 0 72px;
   }
-  
+  .hero-section .paragraph {
+    font-size: 17px !important;
+    margin-bottom: 28px !important;
+  }
+  .hero-trust {
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 28px;
+    padding-top: 22px;
+  }
+
   .premium-card {
-    padding: 30px;
+    padding: 28px !important;
   }
-  
-  .contact-form-card, .contact-info-card {
-    padding: 30px;
+  .contact-form-card,
+  .contact-info-card {
+    padding: 28px;
   }
-  
   .testimonial-container {
-    padding: 40px 30px;
+    padding: 36px 24px;
   }
-  
   .ba-slider-container {
     height: 320px;
   }
+  .ba-label {
+    font-size: 11px;
+    padding: 6px 12px;
+    bottom: 14px;
+  }
+  .ba-label-before { left: 14px; }
+  .ba-label-after { right: 14px; }
+  .ba-slider-button {
+    width: 42px;
+    height: 42px;
+    margin-left: -21px;
+    margin-top: -21px;
+  }
+
+  /* Service rows tighten */
+  .service-row {
+    gap: 14px;
+    padding: 24px 0;
+  }
+  .service-row:hover {
+    padding-left: 8px;
+  }
+  .service-row-num {
+    min-width: 28px;
+    font-size: 14px;
+  }
+  .service-row-body h3 {
+    font-size: 22px;
+  }
+  .service-row-body p {
+    font-size: 15px;
+  }
+  .service-row-arrow {
+    display: none;
+  }
+
+  /* Comparison stacks */
+  .compare {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .compare-col {
+    padding: 26px;
+  }
+
+  /* Process timeline becomes vertical list */
+  .process-timeline::before {
+    display: none;
+  }
+  .process-step {
+    text-align: left;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 16px;
+    row-gap: 6px;
+    padding: 0;
+    margin-bottom: 24px;
+    align-items: start;
+  }
+  .process-num {
+    margin: 0;
+    grid-row: 1 / span 2;
+    width: 52px;
+    height: 52px;
+    font-size: 18px;
+  }
+  .process-step h5 {
+    grid-column: 2;
+    margin: 0 0 4px !important;
+    line-height: 1.25;
+  }
+  .process-step p {
+    grid-column: 2;
+    margin: 0;
+  }
+
+  /* Founder */
+  .founder-portrait {
+    max-height: 420px;
+    object-fit: cover;
+  }
+  .founder-stats {
+    gap: 20px 28px;
+  }
+  .founder-stat .num {
+    font-size: 28px;
+  }
+
+  /* About badge — smaller, in flow-safe place */
+  #about .position-absolute.translate-middle-y {
+    position: relative !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    display: inline-block;
+    margin-top: 16px;
+    max-width: 100% !important;
+  }
+  .est-badge {
+    left: 12px;
+    bottom: 12px;
+    padding: 12px 16px;
+  }
+
+  /* Specs / reviews */
+  .reviews-masonry {
+    column-count: 1;
+  }
+  .review-quote-mark {
+    font-size: 44px;
+  }
+
+  /* Footer bottom stack */
+  .footer-bottom {
+    text-align: center;
+  }
+
+  /* Inner page headers — less top padding under fixed nav */
+  .section-padding[style*="padding-top: 160px"],
+  .section-padding[style*="padding-top: 170px"],
+  section[style*="padding-top: 160px"],
+  section[style*="padding-top: 170px"] {
+    padding-top: 130px !important;
+  }
+
+  /* Form rows feel denser */
+  #contactForm .row.g-4,
+  #estimateForm .row {
+    --bs-gutter-y: 1.1rem;
+  }
+
+  /* Custom select stays readable */
+  .custom-select-menu {
+    max-height: 240px;
+  }
+  .custom-select-menu li {
+    padding: 12px 14px;
+  }
 }
 
-/* Portrait Phones (425px and below) */
-@media (max-width: 425px) {
-  body {
-    font-size: 16px;
-  }
+/* Portrait Phones (≤575px) */
+@media (max-width: 575.98px) {
   .display-heading {
     font-size: 34px;
-    line-height: 1.2;
+    line-height: 1.18;
   }
   .section-heading {
-    font-size: 26px;
+    font-size: 27px;
   }
-  .btn-premium {
-    padding: 12px 24px;
-    font-size: 15px;
+  .sub-heading {
+    font-size: 12px;
+  }
+  .section-padding {
+    padding: 56px 0;
+  }
+  .hero-section {
+    padding: 118px 0 64px;
+  }
+  .hero-section .d-flex.gap-3 {
+    width: 100%;
+  }
+  .hero-section .btn-premium {
     width: 100%;
     justify-content: center;
   }
+
+  .navbar-premium .navbar-brand {
+    width: 132px !important;
+  }
+  .navbar-premium > .container {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .premium-card {
+    padding: 22px !important;
+  }
+  .contact-form-card,
+  .contact-info-card {
+    padding: 24px;
+  }
+
   .ba-slider-container {
     height: 260px;
   }
-  .hero-accent-card {
-    padding: 14px;
-    max-width: 220px;
-    gap: 10px;
+  .ba-label {
+    font-size: 10px;
+    padding: 5px 10px;
+    bottom: 10px;
   }
-  .hero-accent-icon {
-    width: 40px;
-    height: 40px;
+
+  .areas-strip-list li {
+    font-size: 14px;
   }
-  .stat-box {
-    padding: 20px 10px;
+  .areas-strip-list li:not(:last-child)::after {
+    margin: 0 10px;
+  }
+
+  .compare-col {
+    padding: 22px;
+  }
+  .compare-col h4 {
+    font-size: 16px;
+  }
+
+  .founder-quote {
+    font-size: 20px;
+  }
+  .signature {
+    font-size: 22px;
+  }
+  .founder-stats {
+    gap: 18px;
+  }
+  .founder-stat .num {
+    font-size: 26px;
+  }
+
+  .pull-quote {
+    padding-left: 18px;
+    font-size: 20px;
+  }
+
+  .svc-index {
+    top: 10px;
+    left: 10px;
+    width: 48px;
+    height: 48px;
+    font-size: 17px;
+  }
+  .svc-row {
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+  }
+
+  .spec-grid {
+    grid-template-columns: 1fr;
+  }
+  .gallery-masonry {
+    column-count: 1;
+  }
+
+  .lightroom-modal {
+    padding: 52px 14px 22px;
+  }
+  .lightroom-content,
+  .lightroom-img {
+    max-height: calc(100vh - 90px);
+  }
+
+  .section-padding[style*="padding-top: 160px"],
+  .section-padding[style*="padding-top: 170px"],
+  section[style*="padding-top: 160px"],
+  section[style*="padding-top: 170px"] {
+    padding-top: 118px !important;
+  }
+
+  /* Don't force every button full-width sitewide — only hero CTAs / nav CTA already covered */
+  .hero-section .btn-premium,
+  .navbar-premium .btn-premium,
+  #contactForm .btn-premium,
+  #estimateForm .btn-premium {
+    width: 100%;
+    justify-content: center;
   }
 }
 
-/* Tiny Mobile Screens (320px to 374px) */
+/* Tiny Mobile Screens (≤374px) */
 @media (max-width: 374.98px) {
   .display-heading {
     font-size: 30px;
@@ -150,10 +454,21 @@
   .section-heading {
     font-size: 24px;
   }
-  .hero-accent-card {
-    display: none; /* Hide on extremely small screens to prevent overlap */
-  }
   .ba-slider-container {
     height: 220px;
+  }
+  .ba-label {
+    display: none;
+  }
+  .process-num {
+    width: 46px;
+    height: 46px;
+    font-size: 16px;
+  }
+  .hero-accent-card {
+    display: none;
+  }
+  .areas-strip-list li {
+    font-size: 13px;
   }
 }

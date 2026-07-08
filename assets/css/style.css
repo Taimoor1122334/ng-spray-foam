@@ -55,6 +55,7 @@ body {
   font-size: 17px;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -1728,20 +1729,7 @@ a.contact-value:hover { color: var(--color-accent); }
 .contact-assurances li:last-child { margin-bottom: 0; }
 .contact-assurances svg { color: var(--color-primary); flex-shrink: 0; margin-top: 2px; }
 
-@media (max-width: 991.98px) {
-  .services-intro { position: static; margin-bottom: 20px; }
-  .about-intro-sticky { position: static !important; }
-  .svc-index { top: 12px; left: 12px; width: 52px; height: 52px; font-size: 19px; }
-  .contact-info-card { padding: 34px; }
-}
-@media (max-width: 767.98px) {
-  .compare { grid-template-columns: 1fr; }
-  .process-timeline::before { display: none; }
-  .process-step { text-align: left; display: flex; align-items: flex-start; gap: 18px; padding: 0; margin-bottom: 8px; }
-  .process-num { margin: 0; flex-shrink: 0; width: 56px; height: 56px; font-size: 19px; }
-  .service-row-arrow { display: none; }
-  .est-badge { left: 12px; bottom: 12px; padding: 12px 16px; }
-}
+/* Responsive overrides for editorial layouts live in responsive.css */
 
 /* Service detail spec grid */
 .spec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
