@@ -22,7 +22,7 @@ function initBeforeAfterSlider() {
     const overlayImg = overlay ? overlay.querySelector('.ba-slider-image') : null;
     let isDragging = false;
 
-    // Update inner image width to match container width
+    // Keep the clipped overlay image matching full container width
     const updateDimensions = () => {
       if (overlayImg && slider) {
         const sliderWidth = slider.getBoundingClientRect().width || slider.offsetWidth;
@@ -30,23 +30,23 @@ function initBeforeAfterSlider() {
       }
     };
 
-    // Helper function to set width
-    const setWidth = (clientX) => {
+    const setPosition = (clientX) => {
       const rect = slider.getBoundingClientRect();
-      const positionX = clientX - rect.left;
-      let percentage = (positionX / rect.width) * 100;
+      let percentage = ((clientX - rect.left) / rect.width) * 100;
 
-      // Constrain inside bounds
       if (percentage < 0) percentage = 0;
       if (percentage > 100) percentage = 100;
 
+      // Line + nested arrow button move together;
+      // labels live on each image layer, so they clip/cover naturally
       overlay.style.width = `${percentage}%`;
       handle.style.left = `${percentage}%`;
     };
 
-    // Event listeners
     const startDrag = (e) => {
       isDragging = true;
+      const clientX = e.type.startsWith('touch') ? e.touches[0].clientX : e.clientX;
+      setPosition(clientX);
       e.preventDefault();
     };
 
@@ -56,38 +56,35 @@ function initBeforeAfterSlider() {
 
     const drag = (e) => {
       if (!isDragging) return;
-      
-      let clientX;
-      if (e.type === 'touchmove') {
-        clientX = e.touches[0].clientX;
-      } else {
-        clientX = e.clientX;
-      }
-      
-      requestAnimationFrame(() => setWidth(clientX));
+
+      const clientX = e.type === 'touchmove' ? e.touches[0].clientX : e.clientX;
+      if (e.type === 'touchmove') e.preventDefault();
+      requestAnimationFrame(() => setPosition(clientX));
     };
 
-    // Mouse events
     handle.addEventListener('mousedown', startDrag);
+    handle.addEventListener('touchstart', startDrag, { passive: false });
+
+    slider.addEventListener('mousedown', (e) => {
+      if (e.target === handle || handle.contains(e.target)) return;
+      isDragging = true;
+      setPosition(e.clientX);
+      e.preventDefault();
+    });
+    slider.addEventListener('touchstart', (e) => {
+      if (e.target === handle || handle.contains(e.target)) return;
+      isDragging = true;
+      setPosition(e.touches[0].clientX);
+      e.preventDefault();
+    }, { passive: false });
+
     window.addEventListener('mouseup', stopDrag);
     window.addEventListener('mousemove', drag);
-
-    // Touch events
-    handle.addEventListener('touchstart', startDrag);
     window.addEventListener('touchend', stopDrag);
     window.addEventListener('touchmove', drag, { passive: false });
 
-    // Slider container click moves slider
-    slider.addEventListener('click', (e) => {
-      if (e.target !== handle && !handle.contains(e.target)) {
-        setWidth(e.clientX);
-      }
-    });
-
-    // Handle resize
     window.addEventListener('resize', updateDimensions);
 
-    // Initialize dimensions and center position
     updateDimensions();
     overlay.style.width = '50%';
     handle.style.left = '50%';

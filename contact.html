@@ -150,21 +150,31 @@
                   </div>
                 </div>
                 <div class="col-md-6 col-12">
-                  <div class="form-floating-premium">
-                    <select id="contactService" name="service" class="form-select" required>
-                      <option value="" disabled selected hidden></option>
+                  <div class="form-floating-premium custom-select is-empty" data-custom-select>
+                    <select id="contactService" name="service" class="visually-hidden" required tabindex="-1" aria-hidden="true">
+                      <option value="" selected disabled></option>
                       <option value="Spray Foam Insulation">Spray Foam Insulation</option>
                       <option value="Fiberglass Insulation">Fiberglass Insulation</option>
                       <option value="Blown-In Attic">Blown-In Attic</option>
                       <option value="Crawl Space Sealing">Crawl Space Sealing</option>
                       <option value="Commercial Projects">Commercial Projects</option>
                     </select>
-                    <label for="contactService">Desired Service *</label>
+                    <button type="button" class="custom-select-trigger form-select" aria-haspopup="listbox" aria-expanded="false" id="contactServiceTrigger">
+                      <span class="custom-select-value"></span>
+                    </button>
+                    <label for="contactServiceTrigger">Desired Service *</label>
+                    <ul class="custom-select-menu" role="listbox" aria-labelledby="contactServiceTrigger" hidden>
+                      <li role="option" data-value="Spray Foam Insulation" tabindex="-1">Spray Foam Insulation</li>
+                      <li role="option" data-value="Fiberglass Insulation" tabindex="-1">Fiberglass Insulation</li>
+                      <li role="option" data-value="Blown-In Attic" tabindex="-1">Blown-In Attic</li>
+                      <li role="option" data-value="Crawl Space Sealing" tabindex="-1">Crawl Space Sealing</li>
+                      <li role="option" data-value="Commercial Projects" tabindex="-1">Commercial Projects</li>
+                    </ul>
                   </div>
                 </div>
                 <div class="col-md-6 col-12">
                   <div class="form-floating-premium">
-                    <input type="text" id="contactZip" name="zip" class="form-control" placeholder=" ">
+                    <input type="text" id="contactZip" name="zip" class="form-control" placeholder=" " inputmode="numeric" autocomplete="postal-code">
                     <label for="contactZip">Project Zip Code</label>
                   </div>
                 </div>

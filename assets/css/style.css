@@ -424,7 +424,7 @@ a:hover {
   padding: 200px 0 130px;
   background-color: var(--color-primary-dark);
   background-image:
-    linear-gradient(100deg, rgba(20, 32, 25, 0.92) 0%, rgba(20, 32, 25, 0.72) 42%, rgba(20, 32, 25, 0.42) 100%),
+    linear-gradient(100deg, rgba(20, 32, 25, 0.92) 0%, rgba(20, 32, 25, 0.72) 42%, rgba(20, 32, 25, 0.32) 100%),
     url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=80');
   background-size: cover;
   background-position: center;
@@ -609,6 +609,7 @@ a:hover {
   margin-left: -2px;
   cursor: ew-resize;
   z-index: 10;
+  touch-action: none;
 }
 
 .ba-slider-button {
@@ -643,14 +644,27 @@ a:hover {
   font-size: 14px;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 2;
 }
 
+/* Label sits on the Before image — clips off as that layer slides away */
 .ba-label-before {
   left: 20px;
 }
 
+/* Label sits on the After image — covered when Before layer slides over it */
 .ba-label-after {
   right: 20px;
+}
+
+.ba-slider-after {
+  z-index: 1;
+}
+
+.ba-slider-overlay {
+  z-index: 2;
 }
 
 /* ==========================================================================
@@ -859,8 +873,7 @@ a:hover {
 
 .lightroom-modal {
   position: fixed;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
   background: rgba(29, 42, 38, 0.95);
@@ -868,9 +881,12 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 60px 24px 32px;
+  box-sizing: border-box;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.4s ease;
+  overflow: hidden;
 }
 
 .lightroom-modal.active {
@@ -880,13 +896,20 @@ a:hover {
 
 .lightroom-content {
   position: relative;
-  max-width: 85%;
-  max-height: 85%;
+  max-width: min(1100px, 92vw);
+  max-height: calc(100vh - 100px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .lightroom-img {
+  display: block;
   max-width: 100%;
-  max-height: 100%;
+  max-height: calc(100vh - 100px);
+  width: auto;
+  height: auto;
+  object-fit: contain;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-lg);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -894,16 +917,29 @@ a:hover {
 
 .lightroom-close {
   position: absolute;
-  top: -50px;
+  top: -44px;
   right: 0;
   color: var(--color-white);
   font-size: 40px;
+  line-height: 1;
   cursor: pointer;
   transition: color 0.3s;
+  z-index: 2;
 }
 
 .lightroom-close:hover {
   color: var(--color-accent);
+}
+
+@media (max-width: 575.98px) {
+  .lightroom-modal {
+    padding: 52px 16px 24px;
+  }
+
+  .lightroom-content,
+  .lightroom-img {
+    max-height: calc(100vh - 90px);
+  }
 }
 
 /* ==========================================================================
@@ -1017,6 +1053,35 @@ a:hover {
   padding: 50px;
   border: 1px solid var(--color-border);
   box-shadow: var(--shadow-md);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form-card .premium-ajax-form {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+.contact-form-card .premium-ajax-form > .row {
+  flex: 1;
+  min-height: 0;
+}
+
+.contact-form-card .form-message-field {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin-bottom: 28px;
+}
+
+.contact-form-card .form-message-field textarea.form-control {
+  flex: 1;
+  min-height: 160px;
+  height: 100% !important;
+  resize: vertical;
 }
 
 .form-floating-premium {
@@ -1032,15 +1097,132 @@ a:hover {
   background-color: transparent;
   padding: 24px 10px 10px 0;
   font-size: 16px;
+  line-height: 1.4;
+  height: 56px;
   color: var(--color-dark);
   box-shadow: none;
-  transition: all 0.3s;
+  transition: border-color 0.3s, color 0.3s;
+}
+
+.form-floating-premium textarea.form-control {
+  height: auto;
+  min-height: 120px;
+  padding-top: 28px;
+  resize: vertical;
 }
 
 .form-floating-premium .form-control:focus,
 .form-floating-premium .form-select:focus {
   border-color: var(--color-primary);
   background-color: transparent;
+  outline: none;
+  box-shadow: none;
+}
+
+/* Match underline style — native select was spilling a boxed menu look */
+.form-floating-premium .form-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  padding-right: 28px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%239C9080' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 4px center;
+  background-size: 16px;
+}
+
+.form-floating-premium .form-select:focus {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%230F4738' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+}
+
+.form-floating-premium .form-select option {
+  color: var(--color-dark);
+  background: var(--color-white);
+  padding: 10px;
+}
+
+/* Custom dropdown — cream panel, padded options, brand hover */
+.custom-select {
+  z-index: 2;
+}
+
+.custom-select.is-open {
+  z-index: 20;
+}
+
+.custom-select-trigger {
+  width: 100%;
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+
+.custom-select-value {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--color-dark);
+}
+
+.custom-select.is-empty .custom-select-value {
+  color: transparent;
+}
+
+.custom-select-menu {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 10px);
+  margin: 0;
+  padding: 12px;
+  list-style: none;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  z-index: 30;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.custom-select-menu[hidden] {
+  display: none;
+}
+
+.custom-select-menu li {
+  padding: 14px 16px;
+  border-radius: 10px;
+  color: var(--color-dark);
+  font-size: 15px;
+  line-height: 1.35;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.custom-select-menu li + li {
+  margin-top: 6px;
+}
+
+.custom-select-menu li:hover,
+.custom-select-menu li:focus {
+  background: rgba(15, 71, 56, 0.08);
+  color: var(--color-primary);
+  outline: none;
+}
+
+.custom-select-menu li.is-selected {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.custom-select:not(.is-empty) label,
+.custom-select.is-open label {
+  top: 0;
+  font-size: 13px;
+  color: var(--color-primary);
 }
 
 .form-floating-premium label {
@@ -1053,15 +1235,25 @@ a:hover {
   color: var(--color-muted);
   pointer-events: none;
   transition: all 0.3s ease;
+  margin: 0;
 }
 
 .form-floating-premium .form-control:focus ~ label,
 .form-floating-premium .form-control:not(:placeholder-shown) ~ label,
 .form-floating-premium .form-select:focus ~ label,
-.form-floating-premium .form-select:not([value=""]) ~ label {
+.form-floating-premium .form-select:valid ~ label {
   top: 0;
   font-size: 13px;
   color: var(--color-primary);
+}
+
+/* Contact page form: avoid double gap from g-4 + field margin */
+#contactForm .form-floating-premium {
+  margin-bottom: 0;
+}
+
+#contactForm .btn-premium {
+  margin-top: 8px;
 }
 
 /* ==========================================================================
@@ -1342,7 +1534,8 @@ a:hover {
 .process-timeline::before {
   content: '';
   position: absolute;
-  top: 34px;
+  /* g-4 adds 1.5rem top padding on cols; circle is 68px — center the 2px line through it */
+  top: calc(1.5rem + 33px);
   left: 12.5%;
   right: 12.5%;
   height: 2px;

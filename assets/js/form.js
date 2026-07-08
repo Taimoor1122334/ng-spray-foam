@@ -5,6 +5,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initFormFloatLabels();
+  initCustomSelects();
   initContactForms();
 });
 
@@ -30,6 +31,107 @@ function initFormFloatLabels() {
     input.addEventListener('blur', () => checkValue(input));
     input.addEventListener('change', () => checkValue(input));
     input.addEventListener('input', () => checkValue(input));
+  });
+}
+
+/**
+ * Custom select — brand-colored dropdown panel + padded options
+ */
+function initCustomSelects() {
+  const selects = document.querySelectorAll('[data-custom-select]');
+  if (selects.length === 0) return;
+
+  const closeAll = (except) => {
+    selects.forEach(wrap => {
+      if (wrap === except) return;
+      wrap.classList.remove('is-open');
+      const trigger = wrap.querySelector('.custom-select-trigger');
+      const menu = wrap.querySelector('.custom-select-menu');
+      if (trigger) trigger.setAttribute('aria-expanded', 'false');
+      if (menu) menu.hidden = true;
+    });
+  };
+
+  selects.forEach(wrap => {
+    const native = wrap.querySelector('select');
+    const trigger = wrap.querySelector('.custom-select-trigger');
+    const valueEl = wrap.querySelector('.custom-select-value');
+    const menu = wrap.querySelector('.custom-select-menu');
+    const options = menu ? Array.from(menu.querySelectorAll('[role="option"]')) : [];
+    if (!native || !trigger || !menu) return;
+
+    const setValue = (value, label) => {
+      native.value = value;
+      native.dispatchEvent(new Event('change', { bubbles: true }));
+      valueEl.textContent = label;
+      wrap.classList.toggle('is-empty', !value);
+      options.forEach(opt => {
+        const selected = opt.dataset.value === value;
+        opt.classList.toggle('is-selected', selected);
+        opt.setAttribute('aria-selected', selected ? 'true' : 'false');
+      });
+    };
+
+    const open = () => {
+      closeAll(wrap);
+      wrap.classList.add('is-open');
+      trigger.setAttribute('aria-expanded', 'true');
+      menu.hidden = false;
+    };
+
+    const close = () => {
+      wrap.classList.remove('is-open');
+      trigger.setAttribute('aria-expanded', 'false');
+      menu.hidden = true;
+    };
+
+    trigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (wrap.classList.contains('is-open')) close();
+      else open();
+    });
+
+    options.forEach(opt => {
+      opt.addEventListener('click', () => {
+        setValue(opt.dataset.value, opt.textContent.trim());
+        close();
+        trigger.focus();
+      });
+    });
+
+    trigger.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowDown' || e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        open();
+        const current = options.find(o => o.classList.contains('is-selected')) || options[0];
+        current?.focus();
+      } else if (e.key === 'Escape') {
+        close();
+      }
+    });
+
+    menu.addEventListener('keydown', (e) => {
+      const idx = options.indexOf(document.activeElement);
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        options[Math.min(idx + 1, options.length - 1)]?.focus();
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        options[Math.max(idx - 1, 0)]?.focus();
+      } else if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        if (document.activeElement && document.activeElement.matches('[role="option"]')) {
+          document.activeElement.click();
+        }
+      } else if (e.key === 'Escape') {
+        close();
+        trigger.focus();
+      }
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('[data-custom-select]')) closeAll();
   });
 }
 
